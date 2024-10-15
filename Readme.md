@@ -7,7 +7,9 @@ Dit Tampermonkey-script voegt een knop toe aan de actie-balk in Topdesk om snel 
 - Kopieert de geheime link naar een Leverancier, Wijziging of Melding rechtstreeks naar het klembord.
 - Voegt een visuele knop toe die de link kopieert en een melding toont dat de link succesvol is gekopieerd.
 
-![knop](image.png)
+![leveranciers](/screenshots/KnopBijleveranciers.png).
+![meldingen](/screenshots/KnopBijMeldingen.png).
+
 
 ## Installatie
 
