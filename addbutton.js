@@ -1,12 +1,14 @@
 // ==UserScript==
-// @name         Topdesk Secret Link Copier
-// @namespace    http://tampermonkey.net/
-// @version      1.3
-// @description  Kopieert de geheime link naar het klembord in Topdesk
-// @author
-// @match        https://gzazna.topdesk.net/*
-// @match        https://zas.topdesk.net/*
-// @grant        GM_setClipboard
+// @name        Topdesk Secret Link Copier
+// @namespace   http://tampermonkey.net/
+// @version     1.0
+// @description Kopieert de geheime link naar het klembord in Topdesk
+// @author      
+// @match       https://gzazna.topdesk.net/*
+// @match       https://zas.topdesk.net/*
+// @grant       GM_setClipboard
+// @updateURL   https://raw.githubusercontent.com/Supperelias2/TopdeskDirectLinkButton/main/addbutton.js
+// @downloadURL https://raw.githubusercontent.com/Supperelias2/TopdeskDirectLinkButton/main/addbutton.js
 // ==/UserScript==
 
 (function() {
