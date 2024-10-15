@@ -1,7 +1,7 @@
 
-# Topdesk Secret Link Copier
+# Topdesk Direct Link Copier
 
-Dit Tampermonkey-script voegt een knop toe aan de actie-balk in Topdesk om snel de geheime link van een Leverancier, Wijziging, of Melding naar het klembord te kopiëren. Dit script werkt voor zowel Leveranciers als voor Wijzigingen en Meldingen in Topdesk.
+Dit Tampermonkey-script voegt een knop toe aan de actie-balk in Topdesk om snel de geheime link van een Leverancier, Wijziging of Melding naar het klembord te kopiëren. Dit script werkt voor zowel Leveranciers als voor Wijzigingen en Meldingen in Topdesk.
 
 ## Functies
 - Kopieert de geheime link naar een Leverancier, Wijziging of Melding rechtstreeks naar het klembord.
@@ -10,25 +10,19 @@ Dit Tampermonkey-script voegt een knop toe aan de actie-balk in Topdesk om snel 
 
 ## Installatie
 
-1. Installeer [Tampermonkey](https://www.tampermonkey.net/) als extensie in je browser.
-2. Voeg het script toe door deze link te openen in je browser:
-   ```bash
-   https://raw.githubusercontent.com/Supperelias2/TopdeskDirectLinkButton/main/topdesk_secret_link_copier.user.js
-   ```
-3. Bevestig de installatie in Tampermonkey.
+1. Installeer [Tampermonkey voor Edge](https://microsoftedge.microsoft.com/addons/detail/tampermonkey/iikmkjmpaadaobahmlepeloendndfphd) in je browser.
+2. Ga naar het [script op GitHub](https://raw.githubusercontent.com/Supperelias2/TopdeskDirectLinkButton/main/addbutton.js).
+3. Kopieer de volledige code.
+4. Open de Tampermonkey-dashboard.
+5. Klik op **"Add a new script"** en plak de gekopieerde code.
+6. Sla het script op.
 
-## Gebruik
+## Updates
+Na installatie kun je het script direct updaten door naar de Tampermonkey-dashboard te gaan, het script te selecteren en op **"Check for updates"** te klikken. Het script controleert automatisch op updates via de volgende URL:
 
-- Open een Leverancier, Wijziging of Melding in Topdesk.
-- Klik op de knop "Kopieer direct link naar leverancier".
-- De geheime link wordt automatisch naar het klembord gekopieerd, en een melding verschijnt ter bevestiging.
+- `@updateURL`: https://raw.githubusercontent.com/Supperelias2/TopdeskDirectLinkButton/main/addbutton.js
 
 ## Ondersteunde URL's
 
 - `https://gzazna.topdesk.net/*`
 - `https://zas.topdesk.net/*`
-
-## Toekomstige verbeteringen
-
-- Ondersteuning voor andere Topdesk instances.
-- Mogelijkheid om aangepaste meldingen te configureren.
