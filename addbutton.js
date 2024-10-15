@@ -64,7 +64,7 @@
                 // Zorg dat het label breder kan zijn dan de knop
                 messageLabel.style.minWidth = 'max-content';
 
-                // Voeg klikgebeurtenis toe om link naar klembord te kopiëren
+                // Voeg klikgebeurtenis toe om link naar klembord te kopiëren.
                 bigButton.addEventListener('click', function(e) {
                     e.preventDefault(); // Voorkom standaardactie
                     const link = secretLink.href;
