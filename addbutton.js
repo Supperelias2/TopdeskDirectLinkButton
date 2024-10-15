@@ -87,7 +87,7 @@
                     }, 2000); // Toon melding voor 2 seconden
                 });
 
-                // Voeg de melding label toe aan de knop
+                // Voeg de melding label toe aan de knop. 
                 bigButton.appendChild(messageLabel);
 
                 // Voeg de grote knop toe na de "Nieuwe Leverancier" knop
