@@ -86,7 +86,7 @@
                             messageLabel.style.opacity = '1'; // Reset voor volgende keer
                             messageLabel.style.transition = '';
                         }, 500);
-                    }, 2000); // Toon melding voor 2 seconden
+                    }, 4000); // Toon melding voor 2 seconden
                 });
 
                 // Voeg de melding label toe aan de knop. 

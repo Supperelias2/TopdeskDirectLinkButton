@@ -4,10 +4,12 @@
     // Functie om de grote knop toe te voegen of te verwijderen
     function updateButton() {
         // Vind de kleine geheime link knop
-        const secretLink = document.querySelector('.bottombar .secretlink#secretlink');
+        const secretLink = document.getElementById('secretlink');
+        console.log('Secret Link:', secretLink);
 
         // Zoek de action bar
-        const actionBar = document.querySelector('#actionbar.actions');
+        const actionBar = document.getElementById('actionbar');
+        console.log('Action Bar:', actionBar);
 
         // Als de action bar niet bestaat, doe niets
         if (!actionBar) {
@@ -15,7 +17,7 @@
         }
 
         // Zoek bestaande grote knop indien aanwezig
-        let bigButton = document.querySelector('#actionbar .big-secret-link-button');
+        let bigButton = document.querySelector('.big-secret-link-button');
 
         if (secretLink) {
             // Geheime link is aanwezig
@@ -77,14 +79,8 @@
                 // Voeg de melding label toe aan de knop
                 bigButton.appendChild(messageLabel);
 
-                // Voeg de grote knop toe na de "Nieuwe Leverancier" knop
-                const newSupplierButton = actionBar.querySelector('a[href*="supplier?action=new"]');
-                if (newSupplierButton) {
-                    newSupplierButton.parentNode.insertBefore(bigButton, newSupplierButton.nextSibling);
-                } else {
-                    // Als "Nieuwe Leverancier" knop niet gevonden is, voeg toe aan action bar
-                    actionBar.appendChild(bigButton);
-                }
+                // Voeg de grote knop toe aan de action bar
+                actionBar.appendChild(bigButton);
             }
         } else {
             // Geheime link is niet aanwezig

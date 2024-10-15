@@ -1,0 +1,26 @@
+{
+  "manifest_version": 3,
+  "name": "Topdesk Direct Link Copier",
+  "version": "1.0",
+  "description": "This extension adds a button on our our Topdesk Websites to copy direct links to the selected item",
+  "permissions": [
+    "clipboardWrite",
+    "scripting"
+  ],
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://gzazna.topdesk.net/*",
+        "https://zas.topdesk.net/*"
+      ],
+      "js": ["content-script.js"],
+      "all_frames": true
+    }
+  ]
+}
