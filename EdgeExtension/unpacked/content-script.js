@@ -1,26 +1,15 @@
-// ==UserScript==
-// @name        Topdesk Secret Link Copier
-// @namespace   http://tampermonkey.net/
-// @version     1.0
-// @description Kopieert de geheime link naar het klembord in Topdesk
-// @author      
-// @match       https://gzazna.topdesk.net/*
-// @match       https://zas.topdesk.net/*
-// @grant       GM_setClipboard
-// @updateURL   https://raw.githubusercontent.com/Supperelias2/TopdeskDirectLinkButton/main/addbutton.js
-// @downloadURL https://raw.githubusercontent.com/Supperelias2/TopdeskDirectLinkButton/main/addbutton.js
-// ==/UserScript==
-
 (function() {
     'use strict';
 
     // Functie om de grote knop toe te voegen of te verwijderen
     function updateButton() {
         // Vind de kleine geheime link knop
-        const secretLink = document.querySelector('.bottombar .secretlink#secretlink');
+        const secretLink = document.getElementById('secretlink');
+        console.log('Secret Link:', secretLink);
 
         // Zoek de action bar
-        const actionBar = document.querySelector('#actionbar.actions');
+        const actionBar = document.getElementById('actionbar');
+        console.log('Action Bar:', actionBar);
 
         // Als de action bar niet bestaat, doe niets
         if (!actionBar) {
@@ -28,7 +17,7 @@
         }
 
         // Zoek bestaande grote knop indien aanwezig
-        let bigButton = document.querySelector('#actionbar .big-secret-link-button');
+        let bigButton = document.querySelector('.big-secret-link-button');
 
         if (secretLink) {
             // Geheime link is aanwezig
@@ -43,13 +32,9 @@
                 bigButton.style.position = 'relative';
                 bigButton.style.textDecoration = 'none';
 
-                // Verwijder extra padding en marges
-                // bigButton.style.padding = '0';
-                // bigButton.style.margin = '0';
-
                 // Maak melding label
                 const messageLabel = document.createElement('div');
-                messageLabel.textContent = 'link is gekopieerd naar het klembord';
+                messageLabel.textContent = 'Link is gekopieerd naar het klembord';
                 messageLabel.style.backgroundColor = '#d4edda';
                 messageLabel.style.color = '#155724';
                 messageLabel.style.border = '1px solid #c3e6cb';
@@ -62,44 +47,40 @@
                 messageLabel.style.left = '0';
                 messageLabel.style.top = '100%';
                 messageLabel.style.whiteSpace = 'nowrap';
-
-                // Zorg dat het label breder kan zijn dan de knop
                 messageLabel.style.minWidth = 'max-content';
 
-                // Voeg klikgebeurtenis toe om link naar klembord te kopiëren.
+                // Voeg klikgebeurtenis toe om link naar klembord te kopiëren
                 bigButton.addEventListener('click', function(e) {
                     e.preventDefault(); // Voorkom standaardactie
                     const link = secretLink.href;
-                    GM_setClipboard(link);
 
-                    // Toon melding label onder de knop
-                    messageLabel.style.display = 'block';
-                    messageLabel.style.opacity = '1';
+                    // Gebruik de Clipboard API om naar het klembord te schrijven
+                    navigator.clipboard.writeText(link).then(function() {
+                        // Toon melding label onder de knop
+                        messageLabel.style.display = 'block';
+                        messageLabel.style.opacity = '1';
 
-                    // Verberg de melding na een paar seconden met animatie
-                    setTimeout(function() {
-                        // Voeg fade-out animatie toe
-                        messageLabel.style.transition = 'opacity 0.5s';
-                        messageLabel.style.opacity = '0';
+                        // Verberg de melding na een paar seconden met animatie
                         setTimeout(function() {
-                            messageLabel.style.display = 'none';
-                            messageLabel.style.opacity = '1'; // Reset voor volgende keer
-                            messageLabel.style.transition = '';
-                        }, 500);
-                    }, 4000); // Toon melding voor 2 seconden
+                            // Voeg fade-out animatie toe
+                            messageLabel.style.transition = 'opacity 0.5s';
+                            messageLabel.style.opacity = '0';
+                            setTimeout(function() {
+                                messageLabel.style.display = 'none';
+                                messageLabel.style.opacity = '1'; // Reset voor volgende keer
+                                messageLabel.style.transition = '';
+                            }, 500);
+                        }, 2000); // Toon melding voor 2 seconden
+                    }, function(err) {
+                        console.error('Kon de tekst niet kopiëren: ', err);
+                    });
                 });
 
-                // Voeg de melding label toe aan de knop. 
+                // Voeg de melding label toe aan de knop
                 bigButton.appendChild(messageLabel);
 
-                // Voeg de grote knop toe na de "Nieuwe Leverancier" knop
-                const newSupplierButton = actionBar.querySelector('a[href*="supplier?action=new"]');
-                if (newSupplierButton) {
-                    newSupplierButton.parentNode.insertBefore(bigButton, newSupplierButton.nextSibling);
-                } else {
-                    // Als "Nieuwe Leverancier" knop niet gevonden is, voeg toe aan action bar
-                    actionBar.appendChild(bigButton);
-                }
+                // Voeg de grote knop toe aan de action bar
+                actionBar.appendChild(bigButton);
             }
         } else {
             // Geheime link is niet aanwezig
