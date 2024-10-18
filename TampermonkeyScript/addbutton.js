@@ -1,14 +1,14 @@
 // ==UserScript==
-// @name        Topdesk Secret Link Copier
+// @name        Topdesk Direct Link Copier (depricated)
 // @namespace   http://tampermonkey.net/
-// @version     1.0
-// @description Kopieert de geheime link naar het klembord in Topdesk
-// @author      
+// @version     1.1
+// @description No longer supported, please use the EDGE Extension: https://microsoftedge.microsoft.com/addons/detail/topdesk-direct-link-copie/ihmlaohkpnbcnidlpicadkhbhoijpjnn
+// @author      Elias Verstappen
 // @match       https://gzazna.topdesk.net/*
 // @match       https://zas.topdesk.net/*
 // @grant       GM_setClipboard
-// @updateURL   https://raw.githubusercontent.com/Supperelias2/TopdeskDirectLinkButton/main/addbutton.js
-// @downloadURL https://raw.githubusercontent.com/Supperelias2/TopdeskDirectLinkButton/main/addbutton.js
+// @updateURL   https://raw.githubusercontent.com/Supperelias2/TopdeskDirectLinkButton/refs/heads/main/TampermonkeyScript/addbutton.js)
+// @downloadURL https://raw.githubusercontent.com/Supperelias2/TopdeskDirectLinkButton/refs/heads/main/TampermonkeyScript/addbutton.js)
 // ==/UserScript==
 
 (function() {
