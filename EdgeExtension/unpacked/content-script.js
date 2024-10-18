@@ -70,7 +70,7 @@
                                 messageLabel.style.opacity = '1'; // Reset voor volgende keer
                                 messageLabel.style.transition = '';
                             }, 500);
-                        }, 2000); // Toon melding voor 2 seconden
+                        }, 3200); // Toon melding voor 2 seconden
                     }, function(err) {
                         console.error('Kon de tekst niet kopiëren: ', err);
                     });
