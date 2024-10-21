@@ -3,6 +3,10 @@
 
 Dit project biedt twee manieren om de Topdesk Direct Link Copier te gebruiken. De Edge-extensie heeft de voorkeur omdat deze gebruiksvriendelijker en veiliger is. De voorkeursmethode is via een Edge-extensie, die gemakkelijk te installeren is. De tweede methode is via een verouderd Tampermonkey-script, dat nog steeds werkt maar niet meer wordt bijgewerkt.
 
+
+![leveranciers](/screenshots/KnopBijleveranciers.png)
+
+
 ## 1. Edge-extensie (**Voorkeursmethode**)
 
 De eenvoudigste manier om de Topdesk Direct Link Copier te gebruiken is door de Edge-extensie te installeren. Deze extensie voegt een knop toe aan de actie-balk in Topdesk om snel de geheime link van een Leverancier, Wijziging of Melding naar het klembord te kopiëren.
@@ -30,7 +34,7 @@ Deze methode gebruikt een Tampermonkey-script om dezelfde functionaliteit toe te
 - Kopieert de geheime link naar een Leverancier, Wijziging of Melding rechtstreeks naar het klembord.
 - Voegt een visuele knop toe die de link kopieert en een melding toont dat de link succesvol is gekopieerd.
 
-![leveranciers](/screenshots/KnopBijleveranciers.png)
+
 
 ### Installatie van het Tampermonkey-script
 1. Installeer [Tampermonkey voor Edge](https://microsoftedge.microsoft.com/addons/detail/tampermonkey/iikmkjmpaadaobahmlepeloendndfphd) in je browser.
