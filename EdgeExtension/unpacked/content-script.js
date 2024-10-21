@@ -19,8 +19,9 @@
         // Zoek bestaande grote knop indien aanwezig
         let bigButton = document.querySelector('.big-secret-link-button');
 
-        if (secretLink) {
-            // Geheime link is aanwezig
+        // Pas deze regel aan:
+        if (secretLink && secretLink.href !== 'javascript:void(0);' && secretLink.href !== 'void(0);') {
+            // Geheime link is aanwezig en geldig
             if (!bigButton) {
                 // Grote knop is nog niet toegevoegd, maak en voeg toe
                 bigButton = document.createElement('a');
@@ -83,7 +84,7 @@
                 actionBar.appendChild(bigButton);
             }
         } else {
-            // Geheime link is niet aanwezig
+            // Geheime link is niet aanwezig of ongeldig
             if (bigButton) {
                 // Verwijder de grote knop
                 bigButton.parentNode.removeChild(bigButton);
@@ -99,7 +100,14 @@
             updateButton();
         });
 
-        observer.observe(targetNode, { childList: true, subtree: true });
+        // Pas de observer-configuratie aan om ook naar attribuutwijzigingen te luisteren
+        observer.observe(targetNode, {
+            childList: true,
+            subtree: true,
+            attributes: true,
+            attributeFilter: ['href', 'id']
+        });
+
         updateButton(); // Eerste aanroep
     }
 
